@@ -23,7 +23,7 @@ public class OI {
 	}
 	
 	public double getRightJoyHoriz(){
-		return joystick.getRawAxis(IOMap.RIGHT_JOY_HORIZ_AXIS);
+		return -joystick.getRawAxis(IOMap.RIGHT_JOY_HORIZ_AXIS);
 	}
 	
 
