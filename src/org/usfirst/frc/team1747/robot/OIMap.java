@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1747.robot;
 
-public class IOMap {
+public class OIMap {
 	public static final int LEFT_JOY_HORIZ_AXIS = 0;
 	public static final int LEFT_JOY_VERT_AXIS = 1;
 	public static final int RIGHT_JOY_HORIZ_AXIS = 3;

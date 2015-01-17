@@ -8,27 +8,27 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
 	
-	Joystick joystick;
+	Joystick controller1;
 	
 	public double getLeftJoyVert(){
-		return joystick.getRawAxis(IOMap.LEFT_JOY_VERT_AXIS);
+		return controller1.getRawAxis(OIMap.LEFT_JOY_VERT_AXIS);
 	}
 	
 	public double getLeftJoyHoriz(){
-		return joystick.getRawAxis(IOMap.LEFT_JOY_HORIZ_AXIS);
+		return controller1.getRawAxis(OIMap.LEFT_JOY_HORIZ_AXIS);
 	}
 	
 	public double getRightJoyVert(){
-		return -joystick.getRawAxis(IOMap.RIGHT_JOY_VERT_AXIS);
+		return -controller1.getRawAxis(OIMap.RIGHT_JOY_VERT_AXIS);
 	}
 	
 	public double getRightJoyHoriz(){
-		return -joystick.getRawAxis(IOMap.RIGHT_JOY_HORIZ_AXIS);
+		return -controller1.getRawAxis(OIMap.RIGHT_JOY_HORIZ_AXIS);
 	}
 	
 
 	public OI(){
-		joystick = new Joystick(0);
+		controller1 = new Joystick(0);
 	}
 
 
