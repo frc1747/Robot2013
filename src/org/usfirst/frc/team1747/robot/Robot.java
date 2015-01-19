@@ -17,11 +17,12 @@ public class Robot extends IterativeRobot {
 
 	public static Drive drive;
 	public static OI oi;
+	public static SDController sd;
 
 	public void robotInit() {
 		drive = new Drive();
 		oi = new OI();
-		SmartDashboard.putBoolean("TankDrive", true);
+		sd = new SDController();
 		System.out.println("Robot Initialized");
 	}
 

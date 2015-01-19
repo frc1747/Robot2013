@@ -2,6 +2,7 @@ package org.usfirst.frc.team1747.robot.commands;
 
 import org.usfirst.frc.team1747.robot.OI;
 import org.usfirst.frc.team1747.robot.Robot;
+import org.usfirst.frc.team1747.robot.SDController;
 import org.usfirst.frc.team1747.robot.subsystems.Drive;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,10 +12,12 @@ public class TeleopDrive extends Command {
 	
 	Drive drive;
     OI oi;
+    SDController sd;
 	
     public TeleopDrive() {
     	this.drive=Robot.drive;
     	this.oi=Robot.oi;
+    	this.sd = Robot.sd;
         requires(drive);
     }
 	
@@ -23,15 +26,15 @@ public class TeleopDrive extends Command {
 	}
     
 	protected void execute() {
-		if(SmartDashboard.getBoolean("TankDrive")){
-			drive.tankDrive(oi.getLeftJoyVert(), oi.getRightJoyVert());
-			SmartDashboard.putNumber("LeftJoy", oi.getLeftJoyVert());
-	    	SmartDashboard.putNumber("RightJoy", oi.getRightJoyVert());
+		if(sd.getDriveMode()){
+			drive.smoothDrive(oi.getRightJoyVert(), oi.getLeftJoyVert(), sd.getDampeningConstant());
+			sd.setLeftJoy(oi.getLeftJoyVert());
+	    	sd.setRightJoy(oi.getRightJoyVert());
 	    }
 		else{
-			drive.arcadeDrive(oi.getLeftJoyVert(), oi.getRightJoyHoriz());
-			SmartDashboard.putNumber("LeftJoy", oi.getLeftJoyVert());
-	    	SmartDashboard.putNumber("RightJoy", oi.getRightJoyHoriz());
+			drive.arcadeDrive(oi.getLeftJoyVert(), oi.getRightJoyHoriz(), sd.getDampeningConstant());
+			sd.setLeftJoy(oi.getLeftJoyVert());
+	    	sd.setRightJoy(oi.getRightJoyHoriz());
 	    }
     }
 
