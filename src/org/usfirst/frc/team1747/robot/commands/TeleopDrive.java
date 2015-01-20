@@ -28,13 +28,10 @@ public class TeleopDrive extends Command {
 	protected void execute() {
 		if(sd.getDriveMode()){
 			drive.tankDrive(oi.getRightJoyVert(), oi.getLeftJoyVert());
-			sd.setLeftJoy(oi.getLeftJoyVert());
-	    	sd.setRightJoy(oi.getRightJoyVert());
 	    }
 		else{
-			drive.arcadeDrive(oi.getLeftJoyVert(), oi.getRightJoyHoriz(), sd.getDampeningConstant());
-			sd.setLeftJoy(oi.getLeftJoyVert());
-	    	sd.setRightJoy(oi.getRightJoyHoriz());
+			drive.arcadeDrive(oi.getLeftJoyVert(), oi.getRightJoyHoriz(),
+					sd.getDampeningConstant());
 	    }
     }
 

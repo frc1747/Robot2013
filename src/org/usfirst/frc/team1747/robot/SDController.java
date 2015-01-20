@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class SDController {
 	
 	SendableChooser driveChooser;
-	double dampeningConstant;
+	OI oi = Robot.oi;
 	
 	public SDController(){
 		 SmartDashboard.putData(Scheduler.getInstance());
@@ -31,9 +31,19 @@ public class SDController {
 	
 	public void setRightJoy(double value){
 		SmartDashboard.putNumber("Right Joystick", value);
-	}
+	}		
 	
 	public double getDampeningConstant(){
 		return SmartDashboard.getNumber("Dampening Constant");
+	}
+	
+	public void refresh(){
+		if(getDriveMode()){
+			setLeftJoy(oi.getLeftJoyVert());
+	    	setRightJoy(oi.getRightJoyVert());
+		} else {
+			setLeftJoy(oi.getLeftJoyVert());
+			setRightJoy(oi.getRightJoyHoriz());
+		}
 	}
 }

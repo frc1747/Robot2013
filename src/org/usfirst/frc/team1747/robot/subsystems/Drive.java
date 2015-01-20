@@ -86,7 +86,8 @@ public class Drive extends Subsystem {
 	            pLeftCurrent += leftTargetDeltas[i]*SIGMOIDSTRETCH[i];
 	            pRightCurrent += rightTargetDeltas[i]*SIGMOIDSTRETCH[i];
 	        }
-	        return new double[]{pLeftCurrent * sd.getDampeningConstant(), pRightCurrent * sd.getDampeningConstant()};
+	        double damper=sd.getDampeningConstant();
+	        return new double[]{pLeftCurrent * damper, pRightCurrent * damper};
 		}
 	}	
 }
