@@ -27,7 +27,7 @@ public class TeleopDrive extends Command {
     
 	protected void execute() {
 		if(sd.getDriveMode()){
-			drive.smoothDrive(oi.getRightJoyVert(), oi.getLeftJoyVert(), sd.getDampeningConstant());
+			drive.tankDrive(oi.getRightJoyVert(), oi.getLeftJoyVert());
 			sd.setLeftJoy(oi.getLeftJoyVert());
 	    	sd.setRightJoy(oi.getRightJoyVert());
 	    }
