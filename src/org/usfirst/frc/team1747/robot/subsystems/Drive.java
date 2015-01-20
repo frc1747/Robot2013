@@ -57,17 +57,16 @@ public class Drive extends Subsystem {
 	        0.11, 0.1, 0.09, 0.06, 0.03, 0.0};
 	    double[] leftTargetDeltas = new double[SIGMOIDSTRETCH.length];
 	    double[] rightTargetDeltas = new double[SIGMOIDSTRETCH.length];
-	    double pLeftCurrent, pRightCurrent;
-	    double prevLeftTarget, prevRightTarget;
+	    double pLeftCurrent, pRightCurrent, prevLeftTarget, prevRightTarget;
 	    SDController sd;
 	    
 		public DriveSmoother(){
 	        for(int j = 0; j < SIGMOIDSTRETCH.length; j++){
-	            leftTargetDeltas[j] = 0;
-	            rightTargetDeltas[j] = 0;      
+	            leftTargetDeltas[j] = 0.0;
+	            rightTargetDeltas[j] = 0.0;      
 	        }
-	        prevLeftTarget = 0;
-	        prevRightTarget = 0;
+	        prevLeftTarget = 0.0;
+	        prevRightTarget = 0.0;
 	        pLeftCurrent = 0.0;
 	        pRightCurrent = 0.0;
 	        this.sd=Robot.sd;
