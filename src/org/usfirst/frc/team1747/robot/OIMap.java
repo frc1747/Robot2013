@@ -9,4 +9,5 @@ public class OIMap {
 	public static final int JOY_B_BUTTON = 4;
 	public static final int JOY_X_BUTTON = 1;
 	public static final int JOY_Y_BUTTON = 2;
+	public static final int JOY_LEFT_BUMPER = 5;
 }
