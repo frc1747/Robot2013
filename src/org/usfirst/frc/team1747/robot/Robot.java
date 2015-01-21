@@ -3,8 +3,10 @@ package org.usfirst.frc.team1747.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team1747.robot.subsystems.Drive;
+import org.usfirst.frc.team1747.robot.subsystems.Feeder;
+import org.usfirst.frc.team1747.robot.subsystems.Shooter;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,11 +20,16 @@ public class Robot extends IterativeRobot {
 	public static Drive drive;
 	public static OI oi;
 	public static SDController sd;
+	public static Shooter shooter;
+	public static Feeder feeder;
 
 	public void robotInit() {
-		drive = new Drive();
 		oi = new OI();
 		sd = new SDController();
+		drive = new Drive();
+		shooter = new Shooter();
+		feeder = new Feeder();
+		oi.init();
 		System.out.println("Robot Initialized");
 	}
 
@@ -57,6 +64,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		//drive.tankDrive(.5, .5);
 	}
 
 	/**

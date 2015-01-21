@@ -15,7 +15,7 @@ public class SDController {
 		 driveChooser.addDefault("Arcade Drive", true);
 		 driveChooser.addObject("Tank Drive", false);
 		 SmartDashboard.putData("Drive Modes", driveChooser);
-		 SmartDashboard.putData(Robot.drive);
+		 //SmartDashboard.putData(Robot.drive);
 		 SmartDashboard.putNumber("Left Joystick", 0);
 		 SmartDashboard.putNumber("Right Joystick", 0);
 		 SmartDashboard.putNumber("Dampening Constant", 0);
