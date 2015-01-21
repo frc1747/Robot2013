@@ -8,20 +8,13 @@ import org.usfirst.frc.team1747.robot.subsystems.Drive;
 import org.usfirst.frc.team1747.robot.subsystems.Feeder;
 import org.usfirst.frc.team1747.robot.subsystems.Shooter;
 
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
- */
 public class Robot extends IterativeRobot {
 
-	public static Drive drive;
-	public static OI oi;
-	public static SDController sd;
-	public static Shooter shooter;
-	public static Feeder feeder;
+	private static Drive drive;
+	private static  OI oi;
+	private static SDController sd;
+	private static Shooter shooter;
+	private static Feeder feeder;
 
 	public void robotInit() {
 		oi = new OI();
@@ -40,9 +33,6 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 	}
 
-	/**
-	 * This function is called periodically during autonomous
-	 */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 	}
@@ -51,26 +41,46 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().removeAll();
 	}
 
-	/**
-	 * This function is called when the disabled button is hit. You can use it
-	 * to reset subsystems before shutting down.
-	 */
 	public void disabledInit() {
 
 	}
 
-	/**
-	 * This function is called periodically during operator control
-	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		//drive.tankDrive(.5, .5);
 	}
 
-	/**
-	 * This function is called periodically during test mode
-	 */
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+	
+	public static Drive getDrive()  {
+		if(drive==null)
+			System.out.println("drive is null!");
+		return drive;
+	}
+
+	public static OI getOi()  {
+		if(oi==null)
+			System.out.println("oi is null!");
+		return oi;
+	}
+
+	public static SDController getSd()  {
+		if(sd==null)
+			System.out.println("sd is null!");
+		return sd;
+	}
+
+	public static Shooter getShooter()  {
+		if(shooter==null)
+			System.out.println("shooter is null!");
+		return shooter;
+	}
+
+	public static Feeder getFeeder()  {
+		if(feeder==null)
+			System.out.println("feeder is null!");
+		return feeder;
 	}
 }

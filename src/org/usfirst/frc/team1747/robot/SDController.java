@@ -7,9 +7,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class SDController {
 	
 	SendableChooser driveChooser;
-	OI oi = Robot.oi;
+	CyborgController cyborg;
 	
 	public SDController(){
+		cyborg=Robot.getOi().getCyborg();
 		 SmartDashboard.putData(Scheduler.getInstance());
 		 driveChooser = new SendableChooser();
 		 driveChooser.addDefault("Arcade Drive", true);
@@ -39,11 +40,11 @@ public class SDController {
 	
 	public void refresh(){
 		if(getDriveMode()){
-			setLeftJoy(oi.getLeftJoyVert());
-	    	setRightJoy(oi.getRightJoyVert());
+			setLeftJoy(cyborg.getLeftVert());
+	    	setRightJoy(cyborg.getRightVert());
 		} else {
-			setLeftJoy(oi.getLeftJoyVert());
-			setRightJoy(oi.getRightJoyHoriz());
+			setLeftJoy(cyborg.getLeftVert());
+			setRightJoy(cyborg.getRightHoriz());
 		}
 	}
 }

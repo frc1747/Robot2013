@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1747.robot.commands;
 
+import org.usfirst.frc.team1747.robot.CyborgController;
 import org.usfirst.frc.team1747.robot.OI;
 import org.usfirst.frc.team1747.robot.Robot;
 import org.usfirst.frc.team1747.robot.SDController;
@@ -11,13 +12,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class TeleopDrive extends Command {
 	
 	Drive drive;
-    OI oi;
     SDController sd;
-	
+    CyborgController cyborg;
+    
     public TeleopDrive() {
-    	this.drive=Robot.drive;
-    	this.oi=Robot.oi;
-    	this.sd = Robot.sd;
+    	this.drive=Robot.getDrive();
+    	this.cyborg=Robot.getOi().getCyborg();
+    	this.sd = Robot.getSd();
         requires(drive);
     }
 	
@@ -27,10 +28,10 @@ public class TeleopDrive extends Command {
     
 	protected void execute() {
 		if(sd.getDriveMode()){
-			drive.tankDrive(oi.getRightJoyVert(), oi.getLeftJoyVert());
+			drive.tankDrive(cyborg.getRightVert(), cyborg.getLeftVert());
 	    }
 		else{
-			drive.arcadeDrive(oi.getLeftJoyVert(), oi.getRightJoyHoriz(),
+			drive.arcadeDrive(cyborg.getLeftVert(), cyborg.getRightHoriz(),
 					sd.getDampeningConstant());
 	    }
     }

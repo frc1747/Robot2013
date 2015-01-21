@@ -12,42 +12,21 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	
-	Joystick controller1;
-	JoystickButton LeftTriggerButton;
-	JoystickButton RightTriggerButton;
+	private CyborgController cyborg;
 	
-	public boolean getLeftBumper(){
-		return controller1.getRawButton(OIMap.JOY_LEFT_BUMPER);
-	}
-	
-	public double getLeftJoyVert(){
-		return controller1.getRawAxis(OIMap.LEFT_JOY_VERT_AXIS);
-	}
-	
-	public double getLeftJoyHoriz(){
-		return controller1.getRawAxis(OIMap.LEFT_JOY_HORIZ_AXIS);
-	}
-	
-	public double getRightJoyVert(){
-		return controller1.getRawAxis(OIMap.RIGHT_JOY_VERT_AXIS);
-	}
-	
-	public double getRightJoyHoriz(){
-		return -controller1.getRawAxis(OIMap.RIGHT_JOY_HORIZ_AXIS);
-	}
-	
-
 	public OI(){
-		controller1 = new Joystick(0);
+		cyborg = new CyborgController(0);
+	}
+
+	public CyborgController getCyborg() {
+		return cyborg;
 	}
 	
 	public void init(){
-		LeftTriggerButton = new JoystickButton(controller1, 8);
-		LeftTriggerButton.whileHeld(new SpinUp(0.9));
-		LeftTriggerButton.whenReleased(new SpinUp(0.0));
-		RightTriggerButton = new JoystickButton(controller1, 6);
-		RightTriggerButton.whileHeld(new Shoot(0.65));
-		RightTriggerButton.whenReleased(new Shoot(0.0));
+		cyborg.getLeftTrigger().whileHeld(new SpinUp(0.9));
+		cyborg.getLeftTrigger().whenReleased(new SpinUp(0.0));
+		cyborg.getRightTrigger().whileHeld(new Shoot(0.65));
+		cyborg.getRightTrigger().whenReleased(new Shoot(0.0));
 	}
 }
 

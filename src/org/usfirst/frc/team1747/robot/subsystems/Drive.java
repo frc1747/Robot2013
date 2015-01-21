@@ -69,7 +69,7 @@ public class Drive extends Subsystem {
 	        prevRightTarget = 0.0;
 	        pLeftCurrent = 0.0;
 	        pRightCurrent = 0.0;
-	        this.sd=Robot.sd;
+	        this.sd=Robot.getSd();
 		}
 		
 		public double[] calculateSmoothenedValues(double targetLeftCurrent, double targetRightCurrent){

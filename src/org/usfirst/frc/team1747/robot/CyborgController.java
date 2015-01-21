@@ -14,16 +14,49 @@ public class CyborgController {
     public static final int JOY_Y_BUTTON = 2;
     public static final int JOY_A_BUTTON = 3;
     public static final int JOY_B_BUTTON = 4;
+    
+    public static final int JOY_LEFT_BUMPER = 5;
+    public static final int JOY_RIGHT_BUMPER = 6;
+    public static final int TRIGGER_LEFT_BUTTON=7;
+    public static final int TRIGGER_RIGHT_BUTTON=8;
+    
+    public static final int BACK_BUTTON=9;
+    public static final int START_BUTTON=10;
+    
+    public static final int LEFT_JOY_PRESS=11;
+    public static final int RIGHT_JOY_PRESS=12;
+    
+    public static final int FPS_BUTTON=13;
+    
+   
+    
+    //D-PAD == HAT
+    //TRIGGERS == Z-AXIS
 
     Joystick controller;
     JoystickButton buttonA, buttonB, buttonX, buttonY;
-
+    JoystickButton leftBumper, rightBumper, leftTrigger, rightTrigger;
+    JoystickButton leftJoystickPress, rightJoystickPress;
+    JoystickButton fpsButton, backButton, startButton;
+   
     public CyborgController(int portNum) {
         controller = new Joystick(portNum);
         buttonX = new JoystickButton(controller, JOY_X_BUTTON);
         buttonY = new JoystickButton(controller, JOY_Y_BUTTON);
         buttonA = new JoystickButton(controller, JOY_A_BUTTON);
         buttonB = new JoystickButton(controller, JOY_B_BUTTON);
+        leftBumper=new JoystickButton(controller,JOY_LEFT_BUMPER);
+        rightBumper = new JoystickButton(controller, JOY_RIGHT_BUMPER);
+        leftTrigger = new JoystickButton(controller, TRIGGER_LEFT_BUTTON);
+        rightTrigger = new JoystickButton(controller, TRIGGER_RIGHT_BUTTON);
+        leftJoystickPress = new JoystickButton(controller, LEFT_JOY_PRESS);
+        rightJoystickPress = new JoystickButton(controller, RIGHT_JOY_PRESS);
+        fpsButton = new JoystickButton(controller, FPS_BUTTON);
+        backButton = new JoystickButton(controller, BACK_BUTTON);
+        startButton = new JoystickButton(controller, START_BUTTON);
+        
+        //controller.getPOV();
+        
     }
 
     public double getLeftVert() {
@@ -58,19 +91,35 @@ public class CyborgController {
         return buttonY;
     }
 
-    public boolean getA() {
-        return buttonA.get();
-    }
+    public JoystickButton getLeftBumper() {
+		return leftBumper;
+	}
 
-    public boolean getB() {
-        return buttonB.get();
-    }
+	public JoystickButton getRightBumper() {
+		return rightBumper;
+	}
 
-    public boolean getX() {
-        return buttonX.get();
-    }
+	public JoystickButton getLeftTrigger() {
+		return leftTrigger;
+	}
 
-    public boolean getY() {
-        return buttonY.get();
-    }
+	public JoystickButton getRightTrigger() {
+		return rightTrigger;
+	}
+
+	public JoystickButton getLeftJoystickPress() {
+		return leftJoystickPress;
+	}
+
+	public JoystickButton getRightJoystickPress() {
+		return rightJoystickPress;
+	}
+
+	public JoystickButton getFpsButton() {
+		return fpsButton;
+	}
+
+	public JoystickButton getStartButton() {
+		return startButton;
+	}
 }

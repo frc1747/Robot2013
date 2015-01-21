@@ -13,8 +13,8 @@ public class Shoot extends Command {
 	double speed;
 	
 	public Shoot(double speed){
-		this.oi = Robot.oi;
-		this.feeder = Robot.feeder;
+		this.oi = Robot.getOi();
+		this.feeder = Robot.getFeeder();
 		requires (feeder);
 		this.speed = speed;
 	}
