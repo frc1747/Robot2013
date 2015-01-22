@@ -47,6 +47,7 @@ public class Robot extends IterativeRobot {
 
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		sd.refresh();
 		//drive.tankDrive(.5, .5);
 	}
 

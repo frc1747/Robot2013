@@ -23,10 +23,12 @@ public class OI {
 	}
 	
 	public void init(){
-		cyborg.getLeftTrigger().whileHeld(new SpinUp(0.9));
+		cyborg.getLeftTrigger().whileHeld(new SpinUp(1.0));
 		cyborg.getLeftTrigger().whenReleased(new SpinUp(0.0));
 		cyborg.getRightTrigger().whileHeld(new Shoot(0.65));
 		cyborg.getRightTrigger().whenReleased(new Shoot(0.0));
+		cyborg.getRightBumper().whileHeld(new Shoot(-0.65));
+		cyborg.getRightBumper().whenReleased(new Shoot(0.0));
 	}
 }
 

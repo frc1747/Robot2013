@@ -3,6 +3,7 @@ package org.usfirst.frc.team1747.robot.subsystems;
 import org.usfirst.frc.team1747.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Shooter extends Subsystem {

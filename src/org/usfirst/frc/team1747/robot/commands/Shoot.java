@@ -15,7 +15,7 @@ public class Shoot extends Command {
 	public Shoot(double speed){
 		this.oi = Robot.getOi();
 		this.feeder = Robot.getFeeder();
-		requires (feeder);
+		requires(feeder);
 		this.speed = speed;
 	}
 	@Override

@@ -5,16 +5,17 @@ import org.usfirst.frc.team1747.robot.RobotMap;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Feeder extends Subsystem{
 	
-	CANJaguar feederJag;
+	Jaguar feederJag;
 	public Feeder(){
-		//feederJag = new CANJaguar(RobotMap.FEEDER_JAG_ID); 
+		feederJag = new Jaguar(RobotMap.FEEDER_JAG_ID); 
 	}
 	
 	public void setfeederJag(double speed){
-		feederJag.set(speed);
+		feederJag.set(-speed);
 	}
 	
 	@Override

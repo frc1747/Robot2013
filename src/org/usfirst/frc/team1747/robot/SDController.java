@@ -19,7 +19,7 @@ public class SDController {
 		 //SmartDashboard.putData(Robot.drive);
 		 SmartDashboard.putNumber("Left Joystick", 0);
 		 SmartDashboard.putNumber("Right Joystick", 0);
-		 SmartDashboard.putNumber("Dampening Constant", 0);
+		 SmartDashboard.putNumber("Dampening Constant", .6);
 	}
 	
 	public boolean getDriveMode(){
